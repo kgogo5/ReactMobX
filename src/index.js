@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "mobx-react";
 import App from "./App";
 import { Reset } from "styled-reset";
 import "./assets/font.css";
+import CounterStore from "./store/counter";
 
-import { Provider } from "mobx-react"; // MobX 에서 사용하는 Provider
+const counter = new CounterStore();
 
 ReactDOM.render(
-  <Provider>
+  <Provider counter={counter}>
     <Reset />
     <App />
   </Provider>,

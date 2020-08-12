@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import SuperMarketTemplate from "./Components/SuperMarketTemplate";
+import SuperMarket from "./Components/SuperMarket";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <SuperMarketTemplate />
+        <SuperMarket />
       </div>
     );
   }
