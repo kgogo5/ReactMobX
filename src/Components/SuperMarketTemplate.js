@@ -1,5 +1,4 @@
 import React from "react";
-import SuperMarket from "./SuperMarket";
 import styled from "styled-components";
 
 const ProductsBox = styled.div`
@@ -59,27 +58,25 @@ const Products = styled.div`
 
 const Basket = styled.div`
   padding: 15px;
-  display: flex-box;
+  width: 100%;
   font-size: 14px;
 
   li {
+    display: flex;
     position: relative;
     padding: 5px 75px 5px 5px;
   }
 
   em {
-    display: inline-block;
-    min-width: 60%;
+    flex: 8;
   }
 
   span {
-    display: inline-block;
-    width: 30%;
+    flex: 5;
   }
 
   .num {
-    width: 10%;
-    text-align: right;
+    flex: 1;
   }
 
   a {
@@ -98,6 +95,7 @@ const Basket = styled.div`
 `;
 
 const Sum = styled.div`
+  margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid #a3a3a3;
 
@@ -106,7 +104,7 @@ const Sum = styled.div`
   }
 `;
 
-const SuperMarketTemplate = ({ items }) => {
+const SuperMarketTemplate = ({ items, basket }) => {
   return (
     <ProductsBox>
       <Products>
@@ -116,20 +114,7 @@ const SuperMarketTemplate = ({ items }) => {
       <Basket>
         <h2>장바구니</h2>
         <div>
-          <ul>
-            <li>
-              <em>포카칩</em>
-              <span>1500원</span>
-              <span className="num">2</span>
-              <a href="#">갖다놓기</a>
-            </li>
-            <li>
-              <em>포카칩</em>
-              <span>1500원</span>
-              <span className="num">2</span>
-              <a href="#">갖다놓기</a>
-            </li>
-          </ul>
+          <ul>{basket}</ul>
           <Sum>
             <strong>총합</strong>: <span>3850원</span>
           </Sum>
