@@ -1,13 +1,21 @@
 import React from "react";
 import BasketItem from "./BasketItem";
+import { inject, observer } from "mobx-react";
 
-const BasketItemList = () => {
-  return (
-    <>
-      <BasketItem name="포카칩" price={1500} count={2} />
-      <BasketItem name="생수" price={850} count={1} />
-    </>
-  );
+const BasketItemList = ({ items, onTake }) => {
+  const itemList = items.map((item) => (
+    <BasketItem
+      name={item.name}
+      price={item.price}
+      count={item.count}
+      key={item.name}
+      onTake={onTake}
+    />
+  ));
+  return <>{itemList}</>;
 };
 
-export default BasketItemList;
+export default inject(({ market }) => ({
+  items: market.selectedItems,
+  onTake: market.take,
+}))(observer(BasketItemList));

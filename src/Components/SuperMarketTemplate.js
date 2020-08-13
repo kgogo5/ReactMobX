@@ -116,7 +116,7 @@ const SuperMarketTemplate = ({ items, basket }) => {
         <div>
           <ul>{basket}</ul>
           <Sum>
-            <strong>총합</strong>: <span>3850원</span>
+            <strong>총합</strong>: <span>3500원</span>
           </Sum>
         </div>
       </Basket>

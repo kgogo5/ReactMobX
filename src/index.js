@@ -4,12 +4,12 @@ import { Provider } from "mobx-react";
 import App from "./App";
 import { Reset } from "styled-reset";
 import "./assets/font.css";
-import CounterStore from "./store/counter";
+import MarketStore from "./stores/market";
 
-const counter = new CounterStore();
+const market = new MarketStore();
 
 ReactDOM.render(
-  <Provider counter={counter}>
+  <Provider market={market}>
     <Reset />
     <App />
   </Provider>,
