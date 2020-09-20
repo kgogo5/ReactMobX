@@ -5,9 +5,9 @@ export default class MarketStore {
 
   @action
   put = (name, price) => {
-    const exists = this.selectedItem.find((item) => item.name === name);
+    const exists = this.selectedItems.find((item) => item.name === name);
     if (!exists) {
-      this.selectedItem.push({
+      this.selectedItems.push({
         name,
         price,
         count: 1,
@@ -19,17 +19,17 @@ export default class MarketStore {
 
   @action
   take = (name) => {
-    const itemToTake = this.selectedItem.find((item) => item.name === name);
+    const itemToTake = this.selectedItems.find((item) => item.name === name);
     itemToTake.count--;
     if (itemToTake.count === 0) {
-      this.selectedItem.remove(itemToTake);
+      this.selectedItems.remove(itemToTake);
     }
   };
 
   @computed
   get total() {
-    console.log(`총합 계산...`);
-    return this.selectedItem.reduce((previous, current) => {
+    console.log("총합 계산...");
+    return this.selectedItems.reduce((previous, current) => {
       return previous + current.price * current.count;
     }, 0);
   }

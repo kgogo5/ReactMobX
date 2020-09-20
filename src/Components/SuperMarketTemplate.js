@@ -94,16 +94,6 @@ const Basket = styled.div`
   }
 `;
 
-const Sum = styled.div`
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #a3a3a3;
-
-  strong {
-    font-weight: 600;
-  }
-`;
-
 const SuperMarketTemplate = ({ items, basket }) => {
   return (
     <ProductsBox>
@@ -115,9 +105,6 @@ const SuperMarketTemplate = ({ items, basket }) => {
         <h2>장바구니</h2>
         <div>
           <ul>{basket}</ul>
-          <Sum>
-            <strong>총합</strong>: <span>3500원</span>
-          </Sum>
         </div>
       </Basket>
     </ProductsBox>
